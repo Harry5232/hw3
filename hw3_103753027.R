@@ -111,8 +111,8 @@ if (length(args)==0) {
       Pre.score <- c(d$pred.score)  
     }
     
-    Pre.label <- c(d$reference)
-    
+    #Pre.label <- c(d$reference)
+    Pre.label <- c(d$reference == query_m)
     #AUC <- auc(multiclass.roc(Pre.score,Pre.label), min = 0, max = 1)
     AUC <- prediction(Pre.score,Pre.label)
     AUC <- round(attributes(performance(AUC, 'auc'))$y.values[[1]], 2)
